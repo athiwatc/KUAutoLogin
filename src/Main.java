@@ -1,19 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import Parser.LoginParser;
+import java.io.IOException;
 
 /**
  *
  * @author WaiToNZa
  */
 public class main {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
+        LoginParser parser = new LoginParser("b5310545620", "wairungtonas12", "0");
+        try {
+            parser.login();
+        } catch (IOException ex) {
+            System.out.println("Connection Failed to login");
+        }
     }
 }

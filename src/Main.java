@@ -19,7 +19,7 @@ public class main {
             try {
                 Thread.sleep(10000);
                 System.out.println("Checking if there is internet");
-                if (InternetChecker.getDefaultInstance().isConnectionPresent()) {
+                if (InternetChecker.getDefaultInstance().isConnectionPresent(true)) {
                     System.out.println("Internet connection is present");
                 } else {
                     System.out.println("Internet connection not found. Trying to login");

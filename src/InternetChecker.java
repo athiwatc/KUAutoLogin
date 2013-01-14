@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class InternetChecker {
 
     private static final String URL_TO_CHECK = "http://www.google.com/";
-    private static final long CHECK_EVERY = 30 * 60 * 1000; /* 30 minutes */
+    private static final long CHECK_EVERY = 1000000 * 1000; /* 30 minutes */
 
     private static final int BUF_SIZE = 1024;
     private static InternetChecker ref;
@@ -31,10 +31,14 @@ public class InternetChecker {
     }
 
     public boolean isConnectionPresent() {
+        try {
         if (!isStateValid()) {
             checkConnection();
         }
         return lastState;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     public boolean isConnectionPresent(boolean forceCheck) {
